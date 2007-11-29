@@ -1,0 +1,48 @@
+useDynLib(biclust)
+
+import(methods)
+
+importFrom(grid, grid.lines, unit, gpar)
+importFrom(MASS, sammon, isoMDS, Shepard)
+
+
+export(
+	drawHeatmap, 
+	bubbleplot, 
+	parallelCoordinates,
+	BiclustResult,
+	binarize,
+	binarizeByPercentage,
+	densityOnes,
+	discretize,
+	jaccardind,
+	constantVariance,
+	additiveVariance,
+	multiplicativeVariance,
+	signVariance,
+	writeBiclusterResults,
+	BCBimax,
+	BCCC,
+	BCXmotifs,
+	BCSpectral,
+	BCPlaid
+	)
+
+exportClasses(
+		BiclustMethod,
+		Biclust,
+		BCBimax,
+		BCCC,
+		BCXmotifs,
+		BCSpectral,
+		BCPlaid
+		)
+
+exportMethods(
+		biclust,
+		show,
+		summary
+		)
+
+		
+		
