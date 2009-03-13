@@ -70,8 +70,8 @@ BCCC <- function() {
 setClass('BCSpectral',
          contains = 'BiclustMethod',
          prototype = prototype(
-           biclustFunction = function(x,normalization="log",numberOfEigenvalues=3,minGenes=2, minConditions=2, withinVar=1)
-           {spectral(x,normalization, numberOfEigenvalues, minGenes, minConditions, withinVar)}))
+           biclustFunction = function(x,normalization="log",numberOfEigenvalues=3,minr=2, minc=2, withinVar=1)
+           {spectral(x,normalization, numberOfEigenvalues, minr, minc, withinVar)}))
          
 BCSpectral <- function() {
   return(new('BCSpectral'))
@@ -88,35 +88,60 @@ BCPlaid <- function() {
   return(new('BCPlaid'))
 }
 
+setClass('BCQuest',
+         contains = 'BiclustMethod',
+         prototype = prototype(
+           biclustFunction = function(x,ns=10,nd=10,sd=5,alpha=0.05,number=10){questmotif(x,ns,nd,sd,alpha,number)}))
+         
+BCQuest <- function() {
+  return(new('BCQuest'))
+}
+
 
 ###**show and summary*******************************
 
 setMethod("show", "Biclust",
 function(object)
 {
-    cat("\n\tAn object of class",class(object),"\n\n")
-    cat("\tcall:", deparse(object@Parameters$Call,0.75*getOption("width")),
-        sep="\n\t\t")
-    cat("\n\tNumber of Clusters found: ",object@Number, "\n")   
-    cat("\n\tFirst Cluster size:\n")
-    cat("\t\tNumber of Rows:",sum(object@RowxNumber[,1]),"\n")
-    cat("\t\tNumber of Columns:",sum(object@NumberxCol[1,]),"\n\n") 
+    cat("\nAn object of class",class(object),"\n\n")
+    cat("call:", deparse(object@Parameters$Call,0.75*getOption("width")),
+        sep="\n\t")
+
+    n<-object@Number
+    n<-min(c(n,5))
+    if(n>1)
+    {
+    cat("\nNumber of Clusters found: ",object@Number, "\n")    
+    cat("\nFirst ",n," Cluster sizes:\n")
+    
+    rowcolsizes<-rbind(colSums(object@RowxNumber[,1:n]),rowSums(object@NumberxCol[1:n,]))
+    rownames(rowcolsizes)<-c("Number of Rows:","Number of Columns:")
+    colnames(rowcolsizes)<-paste("BC", 1:n) 
+    print.default(format(rowcolsizes, print.gap = 2, quote = FALSE))
+    }
+    else
+    {
+    if(n==1) cat("\nThere was one cluster found with\n ",sum(object@RowxNumber[,1]), "Rows and ", sum(object@NumberxCol[1,]), "columns")
+    if(n==0) cat("\nThere was no cluster found")
+    }
+    cat("\n\n")
 })
         
 setGeneric("summary")
 setMethod("summary", "Biclust",
 function(object)
 {
-    cat("\n\tAn object of class",class(object),"\n\n")
-    cat("\tcall:", deparse(object@Parameters$Method,0.75*getOption("width")),
-        sep="\n\t\t")
-    cat("\n\tNumber of Clusters found: ",object@Number, "\n")   
-    cat("\n\tCluster sizes:\n")
-    for(i in 1:object@Number)
-    {
-    cat("\n\tCluster ",i,":\n")
-    cat("\t\tNumber of Rows:",sum(object@RowxNumber[,i]),"\n")
-    cat("\t\tNumber of Columns:",sum(object@NumberxCol[i,]),"\n\n")
-    }
+    cat("\nAn object of class",class(object),"\n\n")
+    cat("call:", deparse(object@Parameters$Method,0.75*getOption("width")),
+        sep="\n\t")
+    n<-object@Number
+
+    cat("\nNumber of Clusters found: ",object@Number, "\n")    
+    cat("\nCluster sizes:\n")
+    
+    rowcolsizes<-rbind(colSums(object@RowxNumber[,1:n]),rowSums(object@NumberxCol[1:n,]))
+    rownames(rowcolsizes)<-c("Number of Rows:","Number of Columns:")
+    colnames(rowcolsizes)<-paste("BC", 1:n) 
+    print.default(format(rowcolsizes, print.gap = 2, quote = FALSE))
 })
 

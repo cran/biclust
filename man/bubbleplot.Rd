@@ -57,10 +57,8 @@ Position of circles depend on a
   }
 
 \seealso{
-  \item{\code{\link{drawHeatmap}}}{for single representation of biclusters inside data matrix.}
-  \item{\code{\link{parallelCoordinates}}}{for single representation of biclusters as lines of gene or condition profiles.}
-  \item{cmdscale, isomds}{for multidimensional scaling.}
-  \item{plot}{for other point representations.}
+\code{\link{drawHeatmap}} for single representation of biclusters inside data matrix,
+\code{\link{parallelCoordinates}} for single representation of biclusters as lines of gene or condition profiles, \code{cmdscale, isomds} for multidimensional scaling and \code{plot} for other point representations.
   }
    
    \examples{

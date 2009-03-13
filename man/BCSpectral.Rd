@@ -15,7 +15,7 @@
   (columns).}
 \usage{
 \S4method{biclust}{matrix,BCSpectral}(x, method=BCSpectral(), normalization="log", numberOfEigenvalues=3, 
-            minGenes=2, minConditions=2, withinVar=1)
+            minr=2, minc=2, withinVar=1)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -30,7 +30,7 @@
                                    normalization is used, be sure you can
                                    apply logarithm to elements in data matrix, if there are
                                    values under 1, it automatically will sum
-                                   to each element in mat (1+abs(min(mat))
+                                   to each element in mat (1+abs(min(mat)))
                    Default is "log", as recommended by Kluger et al.}
   \item{numberOfEigenvalues}{the number of eigenValues considered to find
                    biclusters. Each row (gene) eigenVector will be combined
@@ -41,9 +41,9 @@
                     With "irrc" and "bistochastization" methods, first
                     eigenvalue contains background (irrelevant) information, so
                     it is ignored.}
-  \item{minGenes}{minimum number of genes that biclusters must have. The algorithm
+  \item{minr}{minimum number of rows that biclusters must have. The algorithm
                will not consider smaller biclusters.}
-  \item{minConditions}{minimum number of genes that biclusters must have. The algorithm
+  \item{minc}{minimum number of columns that biclusters must have. The algorithm
                will not consider smaller biclusters.}
   \item{withinVar}{maximum within variation allowed. Since spectral biclustering
           outputs a checkerboard structure despite of relevance of individual cells, a
@@ -58,7 +58,7 @@
     Kluger et al., "Spectral Biclustering of Microarray Data: Coclustering Genes and
   	Conditions", Genome Research, 2003, vol. 13, pages 703-716
   }
-}
+
 \author{
   Rodrigo Santamaria
   \email{rodri@usal.es}

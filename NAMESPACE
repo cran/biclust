@@ -1,13 +1,14 @@
 useDynLib(biclust)
 
 import(methods)
+import(vcd)
 
 importFrom(grid, grid.lines, unit, gpar)
 importFrom(MASS, sammon, isoMDS, Shepard)
 
-
 export(
 	drawHeatmap, 
+	drawHeatmap2, 
 	bubbleplot, 
 	parallelCoordinates,
 	BiclustResult,
@@ -25,7 +26,12 @@ export(
 	BCCC,
 	BCXmotifs,
 	BCSpectral,
-	BCPlaid
+	BCPlaid,
+	BCQuest,
+	clustmember,
+	biclustmember,
+	plotclust,
+	writeclust
 	)
 
 exportClasses(

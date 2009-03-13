@@ -31,7 +31,7 @@ For some algorithms preproccessing is necessary, e.g. \code{BCBimax} only runs w
 }
 
 \seealso{
-  \code{\link{Biclust-class}}, \code{\link{BCCC}}, \code{\link{BCXmotifs}}, \code{\link{BCPlaid}}, \code{\link{BCSpectral}}, \code{\link{BCBimax}}, \code{\link{BiclustMethod-class}}
+  \code{\link{Biclust-class}}, \code{\link{BCCC}}, \code{\link{BCXmotifs}}, \code{\link{BCPlaid}}, \code{\link{BCSpectral}}, \code{\link{BCBimax}}, \code{\link{BCQuest}}, \code{\link{BiclustMethod-class}}
 }
 \examples{
 test <- matrix(rbinom(400, 50, 0.4), 20, 20)

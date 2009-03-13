@@ -21,9 +21,11 @@ densityOnes(x)
   \item{gap}{Value used for incremental search of threshold. Default 0.1}
   }
 \details{
-   \item{binarize}{Returns a matrix binarize by input threshold, or by the median if no threshold is given.}
-   \item{binarizeByPercentage}{Returns a matrix binarize by input percentage, given as desired density of ones against zeros.}
-   \item{densityOnes}{Returns the percentage of ones against zeros in a logical matrix}
+The \code{binarize} function returns a matrix binarized by input threshold, or by the median if no threshold is given.
+
+The \code{binarizeByPercentage} function returns a matrix binarize by input percentage, given as desired density of ones against zeros.
+
+The \code{densityOnes} function returns the percentage of ones against zeros in a logical matrix
 }
 %\value{}
 %\references{}

@@ -1,26 +1,81 @@
-parallelCoordinates=function(x, bicResult, number, plotConditions=TRUE, absoluteLimits=TRUE)
-  {
-  n=dim(x)[1]
-  m=dim(x)[2]
+parallelCoordinates=function(x, bicResult, number,plotBoth=FALSE, plotcol=TRUE, compare=TRUE,info=F,bothlab=c("Rows","Columns"),ylab="Value",col=1,...)
+{
+ 	bicRows=which(bicResult@RowxNumber[,number])
+	bicCols=which(bicResult@NumberxCol[number,])
+
+  if(plotBoth)
+    {
+    op<-par(mfrow=c(2,1))
+    if(compare)
+      {
+      mat<-x[bicRows,]
+      matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[1],ylab=ylab,...)
+      axis(1,at=1:nrow(mat),labels=rownames(mat))
+      axis(2)
+      matplot(mat[,bicCols],type='l',lty=1,lwd=2,add=T,col=col,...)
+      
+      mat<-t(x[,bicCols])
+      matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[2],ylab=ylab,...)
+      axis(1,at=1:nrow(mat),labels=rownames(mat))
+      axis(2)
+      matplot(mat[,bicRows],type='l',lty=1,lwd=2,add=T,col=col,...)
+      }
+      
+    else
+      {
+      matplot(x[bicRows,bicCols],type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
+      axis(1,at=1:nrow(x[bicRows,bicCols]),labels=rownames(x[bicRows,bicCols]))
+      axis(2)
+      
+      matplot(t(x[bicRows,bicCols]),type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
+      axis(1,at=1:nrow(t(x[bicRows,bicCols])),labels=rownames(t(x[bicRows,bicCols])))
+      axis(2)
+      }
+    par(op)
+    }
+  else   
+    {
+    if(plotcol)
+      {
+      if(compare)
+        {
+        mat<-x[bicRows,]
+        matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[1],ylab=ylab,...)
+        axis(1,at=1:nrow(mat),labels=rownames(mat))
+        axis(2)
+        matplot(mat[,bicCols],type='l',lty=1,lwd=2,add=T,col=col,...)
+     
+        }
+      else
+        {
+        matplot(x[bicRows,bicCols],type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
+        axis(1,at=1:nrow(x[bicRows,bicCols]),labels=rownames(x[bicRows,bicCols]))
+        axis(2)
+        }
+      }
+    else
+      {
+      if(compare)
+        {
+        mat<-t(x[,bicCols])
+        matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[2],ylab=ylab,...)
+        axis(1,at=1:nrow(mat),labels=rownames(mat))
+        axis(2)
+        matplot(mat[,bicRows],type='l',lty=1,lwd=2,add=T,col=col,...)
+        }
+      else
+        {
+        matplot(t(x[bicRows,bicCols]),type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
+        axis(1,at=1:nrow(t(x[bicRows,bicCols])),labels=rownames(t(x[bicRows,bicCols])))
+        axis(2)
+        }
+      }
+    }
+  if(info)
+    {
+    title(main=paste("Bicluster",number,"\n(rows=", length(bicRows),";", "columns=",length(bicCols),")",sep=" "))
+    }
     
-  bicRows=row(matrix(bicResult@RowxNumber[,number]))[bicResult@RowxNumber[,number]==T]
-  bicCols=row(matrix(bicResult@NumberxCol[number,]))[bicResult@NumberxCol[number,]==T]
+    
+}
 
-
-  if(absoluteLimits)
-    {
-    if(plotConditions)  matplot(x[bicRows,bicCols],type='l',lty=1, ylab="Expression level", xlab="Gene", ylim=c(min(x),max(x)))
-    else                matplot(t(x[bicRows,bicCols]),type='l',lty=1, ylab="Expression level", xlab="Condition", ylim=c(min(x),max(x)))
-    }
-  else
-    {
-    if(plotConditions)  matplot(x[bicRows,bicCols],type='l',lty=1, ylab="Expression level", xlab="Gene")
-    else                matplot(t(x[bicRows,bicCols]),type='l',lty=1, ylab="Expression level", xlab="Condition")
-    }
-  if(plotConditions)
-      title(main=paste("Expresion levels of conditions \nin Bicluster",number," across their genes\n",
-        "(genes=", length(bicRows), "conditions=",length(bicCols),")",sep=" "))
-  else
-      title(main=paste("Expresion levels of genes \nin Bicluster",number," across their conditions\n",
-        "(genes=", length(bicRows), "conditions=",length(bicCols),")",sep=" "))
-  }

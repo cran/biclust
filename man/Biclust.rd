@@ -14,7 +14,7 @@
 
 \section{Objects from the Class}{
   Objects can be created by performing a bicluster algorithm via the \code{biclust()} function.} 
-}
+
 
 \section{Slots}{
   Objects of class \code{Biclust} have the following slots:

@@ -24,10 +24,26 @@ bimaxbiclust<- function(logicalmatrix,...){
 MYCALL<-match.call()
 flush.console()
 ausgabe<-cbimax(logicalmatrix,...)
-if (ausgabe[[10]]==1)
-{warning("Too many biclusters found change number or minimal dimension of expected bicluster!")
-ausgabe}
+#if (ausgabe[[10]]==1)
+#{warning("Too many biclusters found change number or minimal dimension of expected bicluster!")
+#}
 ausgabe[[6]] <- as.logical(ausgabe[[6]])
 ausgabe[[7]] <- as.logical(ausgabe[[7]])
-return(BiclustResult(as.list(MYCALL),matrix(ausgabe[[6]],nrow=nrow(logicalmatrix),ncol=ausgabe[[9]]),matrix(ausgabe[[7]], nrow=ausgabe[[9]], ncol=ncol(logicalmatrix)),ausgabe[[9]]))
+RowxNumber<-matrix(ausgabe[[6]],nrow=nrow(logicalmatrix),ncol=ausgabe[[9]])
+NumberxCol<-matrix(ausgabe[[7]],nrow=ausgabe[[9]],ncol=ncol(logicalmatrix))
+anzahl<-colSums(RowxNumber)
+anzahl2<-rowSums(NumberxCol)
+anzahl_ges<-anzahl+anzahl2
+anzahl_id<-anzahl_ges>0
+Number<-sum(anzahl_id)
+if(Number==1){
+RowxNumber <-matrix(RowxNumber[,anzahl_id],ncol=1)
+NumberxCol <-matrix(NumberxCol[anzahl_id,],nrow=1)
+}
+if(Number>1)
+{
+RowxNumber<- RowxNumber[,anzahl_id]
+NumberxCol <-NumberxCol[anzahl_id,]
+}
+return(BiclustResult(as.list(MYCALL),RowxNumber,NumberxCol,Number))
 }

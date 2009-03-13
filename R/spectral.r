@@ -1,5 +1,5 @@
 spectral=function(x,normalization="log", numberOfEigenvalues=3, 
-            minGenes=2, minConditions=2, withinVar=1)
+            minr=2, minc=2, withinVar=1)
   {
   A=x
   n=dim(A)[1]
@@ -31,9 +31,9 @@ spectral=function(x,normalization="log", numberOfEigenvalues=3,
 
   #3) Vector processing: partitive clustering and reordering
 #  result=postprocess(desc,maxeigen=numberOfEigenvalues,minCG=max(2,floor(n/400)),
-#          maxCG=min(n/minGenes,100),minCE=max(2,floor(m/20)),maxCE=m/minConditions)
+#          maxCG=min(n/minr,100),minCE=max(2,floor(m/20)),maxCE=m/minc)
    result=postprocess(desc,maxeigen=numberOfEigenvalues,minCG=2,
-          maxCG=min(n/minGenes,100),minCE=2,maxCE=m/minConditions)
+          maxCG=min(n/minr,100),minCE=2,maxCE=m/minc)
 
   #4) Taking biclusters of all possible eigenvector combinations
   srows=list()
@@ -69,7 +69,7 @@ spectral=function(x,normalization="log", numberOfEigenvalues=3,
     ncols=length(scols[[i]])
     nrows=length(srows[[i]])
     wv=withinVar(A[srows[[i]],scols[[i]]],ncols,nrows)
-    if(wv<withinVar && ncols>minConditions && nrows>minGenes)
+    if(wv<withinVar && ncols>minc && nrows>minr)
       {
        srowsOK=c(srowsOK, list(srows[[i]]))
        scolsOK=c(scolsOK, list(scols[[i]]))
