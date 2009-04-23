@@ -1,7 +1,7 @@
 useDynLib(biclust)
 
 import(methods)
-import(vcd)
+import(colorspace)
 
 importFrom(grid, grid.lines, unit, gpar)
 importFrom(MASS, sammon, isoMDS, Shepard)

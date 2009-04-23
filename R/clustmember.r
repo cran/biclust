@@ -5,7 +5,7 @@ clustmember<-function(res,x,mid=T,Titel="Cluster Membership Graph",...)
 {
 minx<-min(x)
 maxx<-max(x)
-mycolor<-diverge_hcl(101, h = c(130, 260))
+mycolor<-diverge_hcl(101, h = c(0, 130))
 nx<-dim(res$centers)[1]
 ny<-dim(x)[2]
 xseq<-seq(0,1,length.out=nx+1)
@@ -83,7 +83,7 @@ biclustmember<-function(bicResult,x,mid=T,Titel="BiCluster Membership Graph",...
 {
 minx<-min(x)
 maxx<-max(x)
-mycolor<-diverge_hcl(101, h = c(130, 260))
+mycolor<-diverge_hcl(101, h = c(0, 130))
 nx<-dim(bicResult@NumberxCol)[1]
 ny<-dim(bicResult@NumberxCol)[2]
 xseq<-seq(0,1,length.out=nx+1)

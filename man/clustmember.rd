@@ -29,9 +29,9 @@ clustmember(res,x,mid=T,Titel="Cluster Membership Graph",...)
   }
 
 \seealso{
-  \item{\code{\link{bubbleplot}}}{ for simultaneous representation of biclusters.}
-  \item{\code{\link{parallelCoordinates}}}{for single representation of biclusters as lines of gene or condition profiles.}
-  \item{\code{\link{drawHeatmap}}}{for Heatmap representation of biclusters}
+\code{\link{bubbleplot}} for simultaneous representation of biclusters.
+\code{\link{parallelCoordinates}}for single representation of biclusters as lines of gene or condition profiles.
+\code{\link{drawHeatmap}}for Heatmap representation of biclusters.
   }
 \examples{
   library(vcd)

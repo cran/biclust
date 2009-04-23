@@ -23,13 +23,13 @@ D<-sample(1:nr,sd,prob=logr)
 
 gri<-mat[ri,]
 griD<-c(D,ri)
-cS<-colSums(mat[griD,]==gri)
+cS<-rowSums(t(mat[griD,])==gri)
 gij<-cS==length(griD)
 
 if(sum(gij)>(sum(person)+1) & sum(gij)>2)
 {
 rri<-mat[ri,gij]
-rS<-rowSums(mat[,gij]==rri)
+rS<-colSums(t(mat[,gij])==rri)
 rij<-rS==sum(gij)
 if(sum(rij)>=(alpha*nr)&sum(gij)>sum(person))
 {

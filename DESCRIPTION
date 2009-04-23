@@ -1,12 +1,12 @@
 Package: biclust
-Version: 0.7.1
-Date: 2009-03-13
+Version: 0.7.2
+Date: 2009-04-23
 Author: Sebastian Kaiser, Rodrigo Santamaria, Roberto Theron, Luis
         Quintales and Friedrich Leisch.
 Maintainer: Sebastian Kaiser <Sebastian.Kaiser@stat.uni-muenchen.de>
 Title: BiCluster Algorithms
-Depends: MASS
-Imports: grid, methods, vcd
+Depends: MASS, grid, colorspace
+Imports: methods
 Description: The main function biclust provides several algorithms to
         find biclusters in two-dimensional data: Cheng and Church,
         Spectral, Plaid Model, Xmotifs and Bimax. In addition, the
@@ -15,6 +15,8 @@ Description: The main function biclust provides several algorithms to
         solutions.
 License: GPL-2
 LazyLoad: yes
-Packaged: Fri Mar 13 11:13:20 2009; kaiser
 Repository: CRAN
-Date/Publication: 2009-03-13 10:52:45
+Repository/R-Forge/Project: biclust
+Repository/R-Forge/Revision: 131
+Date/Publication: 2009-04-28 10:07:50
+Packaged: 2009-04-27 03:09:35 UTC; rforge
