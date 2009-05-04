@@ -34,7 +34,6 @@ clustmember(res,x,mid=T,Titel="Cluster Membership Graph",...)
 \code{\link{drawHeatmap}}for Heatmap representation of biclusters.
   }
 \examples{
-  library(vcd)
   s2=matrix(rnorm(400),20,20)
   s2[12:16,12:16]=rnorm(25,3,0.3)
   set.seed(1)

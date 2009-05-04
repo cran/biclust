@@ -1,4 +1,4 @@
-library(MASS)
+
 # NOTE: sammon and shepard projections could be added, but require a treament
 #       of duplicated data
 bubbleplot=function(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection="mean", showLabels=FALSE)

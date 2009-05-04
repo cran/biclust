@@ -1,4 +1,4 @@
-library(grid)
+
 # Draws A as a heatmap, with rows and columns reordered as bicluster rows and
 # columns
 drawHeatmap=function(x, bicResult=NULL, number=NA, local=TRUE, beamercolor=FALSE,paleta,...)
