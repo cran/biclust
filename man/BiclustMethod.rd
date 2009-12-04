@@ -8,7 +8,7 @@
 
 \section{Algorithms}{
   Currently 6 classes inherit from BiclustMethod:
-  \code{\link{BCCC}}, \code{\link{BCXmotifs}}, \code{\link{BCPlaid}}, \code{\link{BCSpectral}}, \code{\link{BCBimax}, \code{\link{BCQuest}}}
+  \code{\link{BCCC}}, \code{\link{BCXmotifs}}, \code{\link{BCPlaid}}, \code{\link{BCSpectral}}, \code{\link{BCBimax}}, \code{\link{BCQuest}}
   }
   
 
@@ -20,4 +20,4 @@
   \code{\link{biclust}}, \code{\link{Biclust-class}}, \code{\link{BCCC}}, \code{\link{BCXmotifs}}, \code{\link{BCPlaid}}, \code{\link{BCSpectral}}, \code{\link{BCBimax}}, \code{\link{BCQuest}}, \code{\link{BiclustMethod-class}}
 }
 \keyword{classes}
-\examples{}
+%\examples{}

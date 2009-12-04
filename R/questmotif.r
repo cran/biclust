@@ -73,9 +73,9 @@ if(nrow(mat)<(sd+1))
 }
 }
 if(i<number)
-{return(BiclustResult(as.list(MYCALL),as.matrix(x[,1:(i-1)]),as.matrix(y[1:(i-1),]),(i-1)))
+{return(BiclustResult(as.list(MYCALL),as.matrix(x[,1:(i-1)]),as.matrix(y[1:(i-1),]),(i-1),list(0)))
 }
 else{
-return(BiclustResult(as.list(MYCALL),as.matrix(x),as.matrix(y),i))
+return(BiclustResult(as.list(MYCALL),as.matrix(x),as.matrix(y),i,list(0)))
 }
 }

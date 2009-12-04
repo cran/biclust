@@ -26,6 +26,8 @@
     \item{\code{NumberxCol}:}{Logical Matrix which contains 1 in [i,j] if Col j is in Bicluster i}
 
     \item{\code{Number}:}{Number of Bicluster}
+
+    \item{\code{info}:}{Additional Outputs from the different bicluster algorithms}
      }
   }
 \section{Details}{
@@ -41,4 +43,4 @@
   \code{\link{biclust}}, \code{\link{BiclustMethod-class}}
 }
 \keyword{classes}
-\examples{}
+%\examples{}

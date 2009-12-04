@@ -18,7 +18,7 @@ cbimax<- function(logicalmatrix,minr=2,minc=2,number=100,er=0)
    as.integer(number),
    as.integer(er))
 
-  
+#### Bimax function for one time running
 
 bimaxbiclust<- function(logicalmatrix,...){
 MYCALL<-match.call()
@@ -45,5 +45,63 @@ if(Number>1)
 RowxNumber<- RowxNumber[,anzahl_id]
 NumberxCol <-NumberxCol[anzahl_id,]
 }
-return(BiclustResult(as.list(MYCALL),RowxNumber,NumberxCol,Number))
+return(BiclustResult(as.list(MYCALL),RowxNumber,NumberxCol,Number,list(0)))
+}
+
+
+#### Bimax function for repeated running without overlapping
+
+
+repbimaxbiclust<- function(logicalmatrix,minr=2,minc=2,number=30,maxc=12)
+{
+  RowxNumber<-matrix(FALSE,nrow=nrow(logicalmatrix),ncol=number)
+  NumberxCol<-matrix(FALSE,nrow=number,ncol=45)
+  daten<-logicalmatrix
+  datenrows<-rep(TRUE,nrow(logicalmatrix))
+
+  for(j in 1:number)
+    {
+    res1<-0
+    res2<-1
+    i<-maxc
+    k<-0
+    while(res1==0 & i>0)
+      {
+      i<-i-1
+      res_bimax <- bimaxbiclust(daten[datenrows,], minr=minr, minc=i, number=number)
+      res1<-res_bimax@Number
+      #print(i)
+      }
+    while(res2>0 & i>minc)
+      {
+      resbic<-res_bimax
+      res_bimax <- bimaxbiclust(daten[datenrows,], minr=minr+k, minc=i, number=30)
+      k<-k+1
+      res2<-res_bimax@Number
+      #print(bicluster28_bimax)
+      }
+    #print(j)
+    #print(resbic)
+    if(i>minc)
+      {
+      ind<-which.max(colSums(resbic@RowxNumber))
+      RowxNumber[datenrows,j]<-resbic@RowxNumber[,ind]
+      NumberxCol[j,]<-resbic@NumberxCol[ind,]
+      datenrows[datenrows][resbic@RowxNumber[,ind]]<-FALSE
+      }
+    else
+      {
+      break
+      }
+
+    }
+  if(i>minc)
+    {
+    bimaxbic<-BiclustResult(resbic@Parameters,RowxNumber[,1:j],NumberxCol[1:j,],j,list())
+    }
+  else
+    {
+    bimaxbic<-BiclustResult(resbic@Parameters,RowxNumber[,1:(j-1)],NumberxCol[1:(j-1),],(j-1),list())
+    }
+return(bimaxbic)
 }

@@ -1,25 +1,34 @@
 \name{biclustmember}
 \alias{clustmember}
 \alias{biclustmember}
+\alias{bicorder}
 
 \title{Draw Heatmap}
-\description{ Draws a membership graph cluster x columns, to show which }
+\description{ Draws a membership graph cluster x columns}
 \usage{
-biclustmember(bicResult,x,mid=T,Titel="BiCluster Membership Graph",...)
+biclustmember(bicResult, x, mid = T, cl_label = "", which=NA, main = "BiCluster Membership Graph", xlab="Cluster", color=diverge_hcl(101, h = c(0, 130)), ...)
 
-clustmember(res,x,mid=T,Titel="Cluster Membership Graph",...)
+clustmember(res, x, mid = T, cl_label = "", which=NA, main = "Cluster Membership Graph", xlab="Cluster",color=diverge_hcl(101, h = c(0, 130)), ...)
+
+bicorder(bicResult, cols=TRUE, rev=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{The data matrix}
   \item{bicResult}{BiclustResult object with a bicluster result set. If this value
     is set to NULL, the data matrix is drawn as a heatmap, without any reordering. Default NULL.}
-  \item{res}{Cluster Result (kcca object)}
+  \item{res}{Cluster Result (is converted into a kcca object)}
   \item{mid}{If TRUE, shows the value of the remaining objects inside the cluster value, else shows both aside each other.}
-  \item{Titel}{Gives the title of the plot}
-  \item{...}{Additional plot options}
+  \item{cl_label}{Ticks of x-axis}
+  \item{which}{If specified gives the ploting order of the columns from bottom to top}
+  \item{main}{Gives the title of the plot}
+  \item{xlab}{Label of x-axis}
+  \item{color}{Range of colors for the plot}
+  \item{...}{Additional plot options or if neccessary option for as.kcca}
+  \item{cols}{If TRUE orders the column by appearance in the bicluster, else orders the rows.}
+  \item{rev}{If TRUE reverses the order}
   }
-\details{}
+%\details{}
 %\value{}
 %\references{}
 
@@ -34,12 +43,21 @@ clustmember(res,x,mid=T,Titel="Cluster Membership Graph",...)
 \code{\link{drawHeatmap}}for Heatmap representation of biclusters.
   }
 \examples{
-  s2=matrix(rnorm(400),20,20)
-  s2[12:16,12:16]=rnorm(25,3,0.3)
   set.seed(1)
-  bics <- biclust(s2,BCPlaid(), back.fit = 2, shuffle = 3, fit.model = ~m + a + b,
+  x=matrix(rnorm(900),30,30)
+  x[1:5,1:5]=rnorm(25,3,0.3)
+  x[11:15,11:15]=rnorm(25,-3,0.3)
+  x[21:25,21:25]=rnorm(25,6,0.3)
+  colnames(x)<-paste("Var.",1:30)
+  bics <- biclust(x,BCPlaid(), back.fit = 2, shuffle = 3, fit.model = ~m + a + b,
   iter.startup = 5, iter.layer = 30,  verbose = TRUE)
-  biclustmember(bics,s2)
+  
+  biclustmember(bics,x)
+  
+  ord<-bicorder(bics, cols=TRUE, rev=TRUE)
+  
+  biclustmember(bics,x,which=ord)
+  
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

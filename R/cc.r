@@ -168,9 +168,9 @@ mat[erg[[1]],erg[[2]]]<-runif(sum(erg[[1]])*sum(erg[[2]]),mi,ma)
 }
 }
 if(i<number)
-{return(BiclustResult(as.list(MYCALL),x[,1:(i-1)],y[1:(i-1),],(i-1)))
+{return(BiclustResult(as.list(MYCALL),x[,1:(i-1)],y[1:(i-1),],(i-1),list(0)))
 }
 else{
-return(BiclustResult(as.list(MYCALL),x,y,i))
+return(BiclustResult(as.list(MYCALL),x,y,i,list(0)))
 }
 }     

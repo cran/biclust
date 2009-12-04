@@ -52,8 +52,7 @@ signVariance(x, resultSet, number, dimension="both")
   \email{rodri@usal.es}
   }
 
-\seealso{
-  }
+%\seealso{}
 
 \examples{
   #Simplified yeast microarray data

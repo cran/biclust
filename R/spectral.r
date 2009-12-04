@@ -80,7 +80,7 @@ spectral=function(x,normalization="log", numberOfEigenvalues=3,
     if(length(srowsOK)==0)
       {
       warning("No biclusters found")
-      return(BiclustResult(as.list(match.call()),matrix(NA,1,1),matrix(NA,1,1),0))
+      return(BiclustResult(as.list(match.call()),matrix(NA,1,1),matrix(NA,1,1),0,list(0)))
       }
     else
       {
@@ -97,6 +97,6 @@ spectral=function(x,normalization="log", numberOfEigenvalues=3,
         temp[scolsOK[[i]]]=T
         colxnumber[,i]=temp
         }
-      return(BiclustResult(as.list(match.call()),rowxnumber,t(colxnumber),length(srowsOK)))
+      return(BiclustResult(as.list(match.call()),rowxnumber,t(colxnumber),length(srowsOK),list(0)))
       }
   }

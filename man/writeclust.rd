@@ -12,7 +12,7 @@ writeclust(Biclusterresult,row=TRUE,noC=10)
   \item{row}{If TRUE, cluster of rows were written.}
   \item{noC}{Number of Clusters written}
   }
-\details{}
+%\details{}
 %\value{}
 %\references{}
 
@@ -21,7 +21,7 @@ writeclust(Biclusterresult,row=TRUE,noC=10)
   \email{sebastian.kaiser@stat.uni-muenchen.de}
   }
 
-\seealso{}
+%\seealso{}
 \examples{
 
   s2=matrix(rnorm(400),20,20)

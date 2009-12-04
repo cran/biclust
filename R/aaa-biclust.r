@@ -30,10 +30,12 @@ setClass('Biclust',
            Parameters = 'list',
            RowxNumber = 'matrix',
            NumberxCol = 'matrix',
-           Number = 'numeric'))
+           Number = 'numeric',
+           info = 'list')
+           )
 
-BiclustResult <- function(mypara, a, b, c) {
-  return(new('Biclust', Parameters=mypara, RowxNumber=a, NumberxCol=b, Number=c))
+BiclustResult <- function(mypara, a, b, c, d) {
+  return(new('Biclust', Parameters=mypara, RowxNumber=a, NumberxCol=b, Number=c, info=d))
 }
 
 
@@ -45,6 +47,15 @@ setClass('BCBimax',
 
 BCBimax <- function() {
   return(new('BCBimax'))
+}
+
+setClass('BCrepBimax',
+         contains = 'BiclustMethod',
+         prototype = prototype(
+           biclustFunction = function(x,minr=2,minc=2,number=100,maxc=12){repbimaxbiclust(x,minr,minc,number,maxc)}))
+
+BCrepBimax <- function() {
+  return(new('BCrepBimax'))
 }
          
 
@@ -97,6 +108,23 @@ BCQuest <- function() {
   return(new('BCQuest'))
 }
 
+setClass('BCQuestord',
+         contains = 'BiclustMethod',
+         prototype = prototype(
+           biclustFunction = function(x,d=1,ns=10,nd=10,sd=5,alpha=0.05,number=10){questordmotif(x,d,ns,nd,sd,alpha,number)}))
+
+BCQuestord <- function() {
+  return(new('BCQuestord'))
+}
+
+setClass('BCQuestmet',
+         contains = 'BiclustMethod',
+         prototype = prototype(
+           biclustFunction = function(x,quant=0.25,vari=1,ns=10,nd=10,sd=5,alpha=0.05,number=10){questmetmotif(x,quant,vari,ns,nd,sd,alpha,number)}))
+
+BCQuestmet <- function() {
+  return(new('BCQuestmet'))
+}
 
 ###**show and summary*******************************
 

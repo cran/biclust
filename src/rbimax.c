@@ -46,13 +46,13 @@
 #include <math.h> 
 double pow( double, double );
 
-typedef unsigned long int  bitvector_t;
+typedef unsigned int  bitvector_t;
 typedef bitvector_t        *cs_t;
 
 typedef enum {identity, complement}  cmode_t;
 
 typedef struct row_s {
-  long  originalRowNumber;
+  int  originalRowNumber;
   cs_t  columnSet;
 } row_t;
 
@@ -60,17 +60,17 @@ int          bitsPerBV;
 int          noBVs;
 bitvector_t  bitMaskLastBV;
 
-long   noRows;
-long   noColumns;
-long   minNoRows;
-long   minNoColumns;
-long   maxLevels;
+int   noRows;
+int   noColumns;
+int   minNoRows;
+int   minNoColumns;
+int   maxLevels;
 row_t  *rows;
 cs_t   *consideredColumns;
 cs_t   *mandatoryColumns;
 cs_t   columnIntersection;
 
-int  isSet(cs_t  columnSet, long  column)
+int  isSet(cs_t  columnSet, int  column)
 {
   bitvector_t  bv;
 
@@ -81,7 +81,7 @@ int  isSet(cs_t  columnSet, long  column)
   return 0;
 } /* setColumn */
 
-void  setColumn(cs_t  columnSet, long  column)
+void  setColumn(cs_t  columnSet, int  column)
 {
   bitvector_t  bv;
 
@@ -91,7 +91,7 @@ void  setColumn(cs_t  columnSet, long  column)
   }
 } /* setColumn */
 
-void  unsetColumn(cs_t  columnSet, long  column)
+void  unsetColumn(cs_t  columnSet, int  column)
 {
   bitvector_t  bv;
 
@@ -101,10 +101,10 @@ void  unsetColumn(cs_t  columnSet, long  column)
   }
 } /* unsetColumn */
 
-long  columnCount(cs_t  columnSet)
+int  columnCount(cs_t  columnSet)
 {
-  long         i, j;
-  long         counter;
+  int         i, j;
+  int         counter;
   bitvector_t  bv;
   
   columnSet[noBVs - 1] &= bitMaskLastBV;
@@ -165,10 +165,10 @@ void  intersectColumnSets(cs_t  columnSetA, cs_t  columnSetB, cs_t  columnSetDes
     columnSetDest[i] = (columnSetA[i] & columnSetB[i]);
 } /* intersectColumnSets */
 
-void  determineColumnsInCommon(long  firstRow, long  lastRow, cs_t  sharedColumnSet)
+void  determineColumnsInCommon(int  firstRow, int  lastRow, cs_t  sharedColumnSet)
 {
   int   i;
-  long  j;
+  int  j;
 
   if (firstRow >= 0L && lastRow >= firstRow && lastRow < noRows) {
     for (i = noBVs - 1; i >= 0; i--) {
@@ -182,7 +182,7 @@ void  determineColumnsInCommon(long  firstRow, long  lastRow, cs_t  sharedColumn
 int  containsMandatoryColumns(cs_t  columnSet, int  noSets)
 {
   int   contains, j;
-  long  i;
+  int  i;
 
   contains = 1;
   for (i = 0; i < noSets; i++) {
@@ -199,9 +199,9 @@ int  containsMandatoryColumns(cs_t  columnSet, int  noSets)
   return contains;
 } /* containsMandatoryColumns */
 
-void  swapRows(long  a, long  b)
+void  swapRows(int  a, int  b)
 {
-  long   tempOriginalRowNumber;
+  int   tempOriginalRowNumber;
   cs_t  tempColumnSet;
 
   if (a != b && a >= 0L && a < noRows && b >= 0L && b < noRows) {
@@ -214,9 +214,9 @@ void  swapRows(long  a, long  b)
   }
 } /* swapRows */
 
-long  chooseSplitRow(long  firstRow, long  lastRow, int  level)
+int  chooseSplitRow(int  firstRow, int  lastRow, int  level)
 {
-  long  i;
+  int  i;
 
   for (i = firstRow; i <= lastRow &&
 	 compareColumns(rows[i].columnSet, consideredColumns[level],
@@ -226,9 +226,9 @@ long  chooseSplitRow(long  firstRow, long  lastRow, int  level)
   return firstRow;
 } /* chooseSplitRow */
 
-long  selectRows(long  firstRow, long  lastRow, long  level, int  *overlapping)
+int  selectRows(int  firstRow, int  lastRow, int  level, int  *overlapping)
 {
-  long  selected;
+  int  selected;
 
   selected = 0L;
   *overlapping = 0;
@@ -251,41 +251,41 @@ long  selectRows(long  firstRow, long  lastRow, long  level, int  *overlapping)
   return selected;
 } /* selectRows */
 
-void  writeBicluster(long  firstRow, long  lastRow, cs_t  columnSet, int * x, int * y, int * z,int * anzahl,int * er)
+void  writeBicluster(int  firstRow, int  lastRow, cs_t  columnSet, int * x, int * y, int * z,int * anzahl,int * er)
 {
-  static long  biclusterCounter = 0;
-  long  i;
-  long a;
+  static int  biclusterCounter = 0;
+  int  i;
+  int a;
   a = *anzahl;
   biclusterCounter++;
   if (biclusterCounter>a) {
       *er = 1;
       biclusterCounter = 0;
       return;}
-  printf("\n%ld\n", biclusterCounter);
+  /* printf("\n%ld\n", biclusterCounter); */
   for (i = firstRow; i <= lastRow; i++)
-    printf("%ld\t", rows[i].originalRowNumber + 1L);
+  /* printf("%ld\t", rows[i].originalRowNumber + 1L); */
   for (i = firstRow; i <= lastRow; i++)
     x[rows[i].originalRowNumber + ((biclusterCounter-1)*noRows)]=1;
 /*  for (i = firstRow; i <= lastRow; i++)
     z[rows[i].originalRowNumber]+=pow(2,(biclusterCounter-1));  */
-  printf("\n");
+  /*printf("\n"); */
   for (i = 0; i < noColumns; i++)
     if (isSet(columnSet, i))
-      printf("%ld\t", i + 1L);
+     /* printf("%ld\t", i + 1L); */
   for (i = 0; i < noColumns; i++)
     if (isSet(columnSet, i))
       y[(biclusterCounter-1)+(i*a)]=1;
 /*  for (i = 0; i < noColumns; i++)
     if (isSet(columnSet, i))
       z[noRows+i]+=pow(2,(biclusterCounter-1));*/    
-  printf("\n");
+  /*printf("\n");*/
 } /* writeBicluster */
 
-void  conquer(long  firstRow, long  lastRow, long  level, long noMandatorySets, int * x, int * y, int * z,int * anzahl,int * er)
+void  conquer(int  firstRow, int  lastRow, int  level, int noMandatorySets, int * x, int * y, int * z,int * anzahl,int * er)
 {
   int   overlapping;
-  long  splitRow, noSelectedRows;
+  int  splitRow, noSelectedRows;
   if(*er==1)
     return;  
   
@@ -323,7 +323,7 @@ int  initialize()
 {
   bitvector_t  dummy;
   int          failed;
-  long         i;
+  int         i;
 
   /* initilization for handling bit vectors */
   dummy = 1;
@@ -373,7 +373,7 @@ int  initialize()
 
 void  readInDataMatrix(int * daten)
 {
-  long  i, j, cell; 
+  int  i, j, cell;
   for (i = 0L; i < noRows; i++) {
     for (j = 0L; j < noColumns; j++) {
       cell = daten[(j*noRows)+i];

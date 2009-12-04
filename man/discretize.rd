@@ -22,8 +22,7 @@ discretize(x,nof=10,quant=FALSE)
   \email{sebastian.kaiser@stat.uni-muenchen.de}
   }
 
-\seealso{
-  }
+%\seealso{  }
 
 \examples{
   #Discretize yeast microarray data

@@ -10,26 +10,26 @@ parallelCoordinates=function(x, bicResult, number,plotBoth=FALSE, plotcol=TRUE, 
       {
       mat<-x[bicRows,]
       matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[1],ylab=ylab,...)
-      axis(1,at=1:nrow(mat),labels=rownames(mat))
-      axis(2)
+      axis(1,at=1:nrow(mat),labels=rownames(mat),...)
+      axis(2,...)
       matplot(mat[,bicCols],type='l',lty=1,lwd=2,add=T,col=col,...)
       
       mat<-t(x[,bicCols])
       matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[2],ylab=ylab,...)
-      axis(1,at=1:nrow(mat),labels=rownames(mat))
-      axis(2)
+      axis(1,at=1:nrow(mat),labels=rownames(mat),...)
+      axis(2,...)
       matplot(mat[,bicRows],type='l',lty=1,lwd=2,add=T,col=col,...)
       }
       
     else
       {
       matplot(x[bicRows,bicCols],type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
-      axis(1,at=1:nrow(x[bicRows,bicCols]),labels=rownames(x[bicRows,bicCols]))
-      axis(2)
+      axis(1,at=1:nrow(x[bicRows,bicCols]),labels=rownames(x[bicRows,bicCols]),...)
+      axis(2,...)
       
       matplot(t(x[bicRows,bicCols]),type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
-      axis(1,at=1:nrow(t(x[bicRows,bicCols])),labels=rownames(t(x[bicRows,bicCols])))
-      axis(2)
+      axis(1,at=1:nrow(t(x[bicRows,bicCols])),labels=rownames(t(x[bicRows,bicCols])),...)
+      axis(2,...)
       }
     par(op)
     }
@@ -41,16 +41,16 @@ parallelCoordinates=function(x, bicResult, number,plotBoth=FALSE, plotcol=TRUE, 
         {
         mat<-x[bicRows,]
         matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[1],ylab=ylab,...)
-        axis(1,at=1:nrow(mat),labels=rownames(mat))
-        axis(2)
+        axis(1,at=1:nrow(mat),labels=rownames(mat),...)
+        axis(2,...)
         matplot(mat[,bicCols],type='l',lty=1,lwd=2,add=T,col=col,...)
      
         }
       else
         {
         matplot(x[bicRows,bicCols],type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
-        axis(1,at=1:nrow(x[bicRows,bicCols]),labels=rownames(x[bicRows,bicCols]))
-        axis(2)
+        axis(1,at=1:nrow(x[bicRows,bicCols]),labels=rownames(x[bicRows,bicCols]),...)
+        axis(2,...)
         }
       }
     else
@@ -59,15 +59,15 @@ parallelCoordinates=function(x, bicResult, number,plotBoth=FALSE, plotcol=TRUE, 
         {
         mat<-t(x[,bicCols])
         matplot(mat,type='l',lty=1,col=gray(0.7),axes=F,xlab=bothlab[2],ylab=ylab,...)
-        axis(1,at=1:nrow(mat),labels=rownames(mat))
-        axis(2)
+        axis(1,at=1:nrow(mat),labels=rownames(mat),...)
+        axis(2,...)
         matplot(mat[,bicRows],type='l',lty=1,lwd=2,add=T,col=col,...)
         }
       else
         {
         matplot(t(x[bicRows,bicCols]),type='l',lty=1,lwd=2,axes=F,xlab=bothlab[1],ylab=ylab,col=col,...)
-        axis(1,at=1:nrow(t(x[bicRows,bicCols])),labels=rownames(t(x[bicRows,bicCols])))
-        axis(2)
+        axis(1,at=1:nrow(t(x[bicRows,bicCols])),labels=rownames(t(x[bicRows,bicCols])),...)
+        axis(2,...)
         }
       }
     }

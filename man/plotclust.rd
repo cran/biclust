@@ -18,7 +18,7 @@ plotclust(res,x,bicluster=TRUE,legende=FALSE,noC=5,wyld=3,Titel="Plotclust",...)
   \item{Titel}{Gives the title of the plot.}
   \item{...}{Additional plot options}
   }
-\details{}
+%\details{}
 %\value{}
 %\references{}
 

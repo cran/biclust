@@ -4,6 +4,7 @@ import(methods)
 import(vcd)
 import(colorspace)
 
+
 importFrom(grid, grid.lines, unit, gpar)
 importFrom(MASS, sammon, isoMDS, Shepard)
 
@@ -24,15 +25,20 @@ export(
 	signVariance,
 	writeBiclusterResults,
 	BCBimax,
+	BCrepBimax,
 	BCCC,
 	BCXmotifs,
 	BCSpectral,
 	BCPlaid,
 	BCQuest,
+	BCQuestord,
+	BCQuestmet,
 	clustmember,
 	biclustmember,
 	plotclust,
-	writeclust
+	writeclust,
+	bicorder,
+	predictBimax
 	)
 
 exportClasses(
