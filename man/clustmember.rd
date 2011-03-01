@@ -3,7 +3,7 @@
 \alias{biclustmember}
 \alias{bicorder}
 
-\title{Draw Heatmap}
+\title{Bicluster Membership Graph}
 \description{ Draws a membership graph cluster x columns}
 \usage{
 biclustmember(bicResult, x, mid = T, cl_label = "", which=NA, main = "BiCluster Membership Graph", xlab="Cluster", color=diverge_hcl(101, h = c(0, 130)), ...)
@@ -15,8 +15,7 @@ bicorder(bicResult, cols=TRUE, rev=FALSE)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{The data matrix}
-  \item{bicResult}{BiclustResult object with a bicluster result set. If this value
-    is set to NULL, the data matrix is drawn as a heatmap, without any reordering. Default NULL.}
+  \item{bicResult}{BiclustResult object with a bicluster result set.}
   \item{res}{Cluster Result (is converted into a kcca object)}
   \item{mid}{If TRUE, shows the value of the remaining objects inside the cluster value, else shows both aside each other.}
   \item{cl_label}{Ticks of x-axis}
@@ -38,9 +37,10 @@ bicorder(bicResult, cols=TRUE, rev=FALSE)
   }
 
 \seealso{
-\code{\link{bubbleplot}} for simultaneous representation of biclusters.
-\code{\link{parallelCoordinates}}for single representation of biclusters as lines of gene or condition profiles.
-\code{\link{drawHeatmap}}for Heatmap representation of biclusters.
+\code{\link{bubbleplot}} for simultaneous representation of biclusters,
+\code{\link{parallelCoordinates}}for single representation of biclusters as lines of gene or condition profiles,
+\code{\link{drawHeatmap}}for Heatmap representation of biclusters and
+\code{\link{biclustbarchart}} for a barchart.
   }
 \examples{
   set.seed(1)

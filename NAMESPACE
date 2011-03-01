@@ -1,17 +1,15 @@
 useDynLib(biclust)
 
 import(methods)
-import(vcd)
-import(colorspace)
 
-
+importFrom(colorspace, diverge_hcl)
 importFrom(grid, grid.lines, unit, gpar)
 importFrom(MASS, sammon, isoMDS, Shepard)
+importFrom(lattice, barchart)
 
-export(
-	drawHeatmap, 
-	drawHeatmap2, 
-	bubbleplot, 
+export(	drawHeatmap,
+	drawHeatmap2,
+	bubbleplot,
 	parallelCoordinates,
 	BiclustResult,
 	binarize,
@@ -38,7 +36,23 @@ export(
 	plotclust,
 	writeclust,
 	bicorder,
-	predictBimax
+	predictBimax,
+	isoverlapp,
+        ensemble,
+       jaccard2,
+       plaid.grid,
+       bimax.grid,
+ #      xmotif.grid,
+ #      spectral.grid,
+ #      cc.grid,
+       bicluster,
+       biclusternumber,
+       ChiaKaruturi,
+       computeObservedFstat,
+       diagnoseColRow,
+       diagnosticPlot,
+       biclustbarchart,
+       heatmapBC
 	)
 
 exportClasses(
@@ -57,5 +71,5 @@ exportMethods(
 		summary
 		)
 
-		
-		
+
+

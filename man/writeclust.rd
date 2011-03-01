@@ -1,7 +1,7 @@
 \name{writeclust}
 \alias{writeclust}
 
-\title{Write a Bicluster as a CLuster Result}
+\title{Write a Bicluster as a Cluster Result}
 \description{ Draws a graph to compare the values inside the diffrent biclusters with the values outside the bicluster}
 \usage{
 writeclust(Biclusterresult,row=TRUE,noC=10)

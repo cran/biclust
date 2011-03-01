@@ -3,12 +3,13 @@
 #  Murali, T. & Kasif, S. Extracting conserved gene expression motifs from gene expression data Proc. Pacific Symp. Biocomputing, sullivan.bu.edu, 2003
 #
 
-## algorithm to find the biggest bicluster (directly programmed FindMotif algorithm of the paper) 
- 
+## algorithm to find the biggest bicluster (directly programmed FindMotif algorithm of the paper)
+
 bigxmotif<-function(mat,ns,nd,sd,alpha)
 {
 #Preprocess Data step not yet implemented
 #statemat<-makestatemat(mat)
+size<-4
 nc<-ncol(mat)
 gen<- rep(FALSE,nrow(mat))
 co<- rep(FALSE,ncol(mat))
@@ -27,15 +28,17 @@ gciD<-c(D,ci)
 rS<-rowSums(mat[,gciD]==gci)
 gij<-rS==length(gciD)
 
-if(sum(gij)>(sum(gen)+1) & sum(gij)>2)
+if(sum(gij) >= max(sum(gen),2))
 {
 cci<-mat[gij,ci]
 cS<-colSums(mat[gij,]==cci)
 cij<-cS==sum(gij)
-if(sum(cij)>=(alpha*nc)&sum(gij)>sum(gen))
+
+if(sum(cij)>=(alpha*nc) & ((sum(gij)*sum(cij))>size) )
 {
 gen<-gij
 co<-cij
+size <- sum(gij) * sum(cij)
 }
 
 }
@@ -98,26 +101,35 @@ MYCALL <- match.call()
 x<-matrix(FALSE,nrow=nrow(mat),ncol=number)
 y<-matrix(FALSE,nrow=number,ncol=ncol(mat))
 matstore<-mat
+Stop <- FALSE
 logr<-rep(TRUE,nrow(mat))
 for(i in 1:number)
 {
-erg<-bigxmotif(mat,ns,nd,sd,alpha)
-if(sum(erg[[1]])==0)
-{break
+    if(sum(logr) < 2)
+        {
+            Stop <- TRUE
+            break
+        }
+    erg<-bigxmotif(mat,ns,nd,sd,alpha)
+    if(sum(erg[[1]])==0)
+    {
+        Stop <- TRUE
+        break
+    }
+    else
+    {
+        x[logr,i]<-erg[[1]]
+        y[i,]<-erg[[2]]
+        logr[logr][erg[[1]]]<-FALSE
+        mat<-as.matrix(matstore[logr,])
+    }
 }
-else{
-x[logr,i]<-erg[[1]]
-y[i,]<-erg[[2]]
-logr[logr][erg[[1]]]<-FALSE
-mat<-matstore[logr,]
-if(nrow(mat)<2)
-{break}
+if(Stop)
+{
+    return(BiclustResult(as.list(MYCALL),as.matrix(x[,1:(i-1)]),as.matrix(y[1:(i-1),]),(i-1),list(0)))
 }
-}
-if(i<number)
-{return(BiclustResult(as.list(MYCALL),x[,1:(i-1)],y[1:(i-1),],(i-1),list(0)))
-}
-else{
-return(BiclustResult(as.list(MYCALL),x,y,i,list(0)))
+else
+{
+    return(BiclustResult(as.list(MYCALL),as.matrix(x),as.matrix(y),i,list(0)))
 }
 }

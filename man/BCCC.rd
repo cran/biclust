@@ -6,9 +6,9 @@
 \alias{biclust,matrix,BCCC-method}
 
 %- Also NEED an '\alias' for EACH other topic documented here.
-\description{Performs CC Biclustering based on the framework by Cheng and Church (2000). Searches for submatrices with a score lower than a specific treshold ind a standardizes data matrix. }
+\description{Performs CC Biclustering based on the framework by Cheng and Church (2000). Searches for submatrices with a score lower than a specific treshold in a standardized data matrix. }
 \usage{
-\S4method{biclust}{matrix,BCCC}(x, method=BCCC(), delta, alpha=1.5, number=100)
+\S4method{biclust}{matrix,BCCC}(x, method=BCCC(), delta = 1.0, alpha=1.5, number=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

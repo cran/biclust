@@ -7,10 +7,10 @@
 
 bigquestmotif<-function(mat,ns,nd,sd,alpha)
 {
-
+size<-4
 nr<-nrow(mat)
-person<- rep(FALSE,ncol(mat))
-quest<- rep(FALSE,nrow(mat))
+ques<- rep(FALSE,ncol(mat))
+pers<- rep(FALSE,nrow(mat))
 for(i in 1:ns)
 {
 ri<-sample(1:nr,1)
@@ -26,22 +26,23 @@ griD<-c(D,ri)
 cS<-rowSums(t(mat[griD,])==gri)
 gij<-cS==length(griD)
 
-if(sum(gij)>(sum(person)+1) & sum(gij)>2)
+if(sum(gij)>= max(sum(ques),2))
 {
 rri<-mat[ri,gij]
 rS<-colSums(t(mat[,gij])==rri)
 rij<-rS==sum(gij)
-if(sum(rij)>=(alpha*nr)&sum(gij)>sum(person))
+if((sum(rij)>=(alpha*nr)) & ((sum(gij)*sum(rij))>size) )
 {
-person<-gij
-quest<-rij
+ques<-gij
+pers<-rij
+size <- sum(ques)*sum(pers)
 }
 
 }
 }
 
 }
-erg<-list(quest,person)
+erg<-list(pers,ques)
 erg
 }
 
@@ -56,23 +57,29 @@ MYCALL <- match.call()
 x<-matrix(FALSE,nrow=nrow(mat),ncol=number)
 y<-matrix(FALSE,nrow=number,ncol=ncol(mat))
 matstore<-mat
+Stop <- FALSE
 logr<-rep(TRUE,nrow(mat))
 for(i in 1:number)
 {
 erg<-bigquestmotif(mat,ns,nd,sd,alpha)
 if(sum(erg[[1]])==0)
-{break
+{
+    Stop <- TRUE
+    break
 }
 else{
 x[logr,i]<-erg[[1]]
 y[i,]<-erg[[2]]
 logr[logr][erg[[1]]]<-FALSE
 mat<-matstore[logr,]
-if(nrow(mat)<(sd+1))
-{break}
+if(sum(logr)<(sd+1))
+{
+    Stop <- TRUE
+    break
 }
 }
-if(i<number)
+}
+if(Stop)
 {return(BiclustResult(as.list(MYCALL),as.matrix(x[,1:(i-1)]),as.matrix(y[1:(i-1),]),(i-1),list(0)))
 }
 else{

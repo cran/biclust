@@ -1,5 +1,6 @@
+# Algorithm Output modified by S. Kaiser and Rodrigo Santamaria to fit into the biclust package
 # Original plaid function implementation by Heather Turner, according to the
-# paper: 
+# paper:
 # Biclustering Models for Structured Microarray Data
 # Heather L. Turner, Trevor C. Bailey, Wojtek J. Krzanowski and Cheryl A. Hemingway
 # IEEE/ACM Transactions on Computational Biology and Bioinformatics vol 2., nº 4.
@@ -35,6 +36,8 @@ cluster = "b", # "r", "c" or "b", to cluster rows, columns or both
 fit.model = y ~ m + a + b, # model to fit to each layer (formula)
 #search.model = NULL, # optional model to base search on (formula)
 background = TRUE, # logical - whether or not to fit a background layer
+background.layer = NA, # Na or if background TRUE a matrix containing the background layer
+background.df= 1, # DF of background layer if specified in background.layer
 row.release = 0.7, # row release criterion (scalar in range [0, 1])
 col.release = 0.7, # column release criterion (scalar in range [0, 1])
 shuffle = 3, # no. of permuted layers to use in permutation test
@@ -103,6 +106,17 @@ fits <- vector(mode = "list", length = length)
 ## background layer
 if (background)
 {
+if(!is.na(background.layer))
+{
+if (length(dim(background.layer)) == 2) background.layer <- array(background.layer, c(dim(background.layer), 1))
+fits[[1]] <- background.layer
+Z <- Z - fits[[1]]
+SS[1] <- sum(fits[[1]]^2)
+if (verbose == TRUE) cat("layer: 0 \n ", SS[[1]], "\n", sep = "")
+layer.df[1] <- background.df
+}
+else
+{
 fits[[1]] <- fitLayer(Z, r[,1], k[,1], fit.model)
 Z <- Z - fits[[1]]
 SS[1] <- sum(fits[[1]]^2)
@@ -110,6 +124,7 @@ layer.df[1] <- 1 + is.element("a", fit.model) * (n - 1) +
 is.element("b", fit.model) * (p - 1) +
 is.element("c", fit.model) * (t - 1)
 if (verbose == TRUE) cat("layer: 0 \n ", SS[[1]], "\n", sep = "")
+}
 }
 layer <- as.numeric(background)
 ## bicluster layers
@@ -163,7 +178,7 @@ c("Rows", "Cols", "Df", "SS", "MS",
   #background = background))
 #  return(BiclustResult(match.call(),r[,1:layer],k[,1:layer],layer-1,last.warning))
 
-  if(layer<=1)          
+  if(layer<=1)
     {
     #MATCHCALL<-list(as.list(match.call()),SS=0,MS=0)
     return(BiclustResult(as.list(match.call()),matrix(NA,1,1),matrix(NA,1,1),0,list(SS=0,MS=0)))
@@ -463,7 +478,7 @@ totdf <- n2 * p2 * t
 resdf <- totdf - (1 + is.element("a", model) * (n2 - 1)
 + is.element("b", model) * (p2 - 1)
 + is.element("c", model) * (t - 1))
-if (i == 1 & resdf == 0)
+if (i == 1 & resdf == 0 & verbose)
 print("Zero residual degrees of freedom")
 }
 ## update layer effects

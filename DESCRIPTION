@@ -1,11 +1,12 @@
 Package: biclust
-Version: 0.9.1
-Date: 2009-12-04
-Author: Sebastian Kaiser, Rodrigo Santamaria, Martin Sill, Roberto
-        Theron, Luis Quintales and Friedrich Leisch.
+Version: 1.0
+Date: 2011-03-01
+Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana, Khamiakova,
+        Martin Sill, Roberto Theron, Luis Quintales and Friedrich
+        Leisch.
 Maintainer: Sebastian Kaiser <Sebastian.Kaiser@stat.uni-muenchen.de>
 Title: BiCluster Algorithms
-Depends: MASS, grid, vcd, colorspace
+Depends: MASS, grid, colorspace, lattice
 Imports: methods
 Suggests: flexclust, isa2
 Description: The main function biclust provides several algorithms to
@@ -18,6 +19,6 @@ License: GPL-2
 LazyLoad: yes
 Repository: CRAN
 Repository/R-Forge/Project: biclust
-Repository/R-Forge/Revision: 158
-Date/Publication: 2009-12-09 08:53:20
-Packaged: 2009-12-02 21:06:29 UTC; rforge
+Repository/R-Forge/Revision: 210
+Date/Publication: 2011-03-07 15:30:32
+Packaged: 2011-03-04 21:45:51 UTC; rforge
