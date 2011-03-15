@@ -1,6 +1,6 @@
 Package: biclust
-Version: 1.0
-Date: 2011-03-01
+Version: 1.0.1
+Date: 2011-03-15
 Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana, Khamiakova,
         Martin Sill, Roberto Theron, Luis Quintales and Friedrich
         Leisch.
@@ -19,6 +19,6 @@ License: GPL-2
 LazyLoad: yes
 Repository: CRAN
 Repository/R-Forge/Project: biclust
-Repository/R-Forge/Revision: 210
-Date/Publication: 2011-03-07 15:30:32
-Packaged: 2011-03-04 21:45:51 UTC; rforge
+Repository/R-Forge/Revision: 212
+Date/Publication: 2011-03-17 19:49:08
+Packaged: 2011-03-15 21:46:33 UTC; rforge

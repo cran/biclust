@@ -1,4 +1,4 @@
-biclustbarchart<-function (x, Bicres, which=NULL, ...)
+biclustbarchart<-function(x, Bicres, which=NULL, ...)
 {
   TAB<-matrix(0,Bicres@Number,dim(x)[2])
   for (i in 1:Bicres@Number) {
