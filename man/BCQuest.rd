@@ -17,7 +17,8 @@
 
 \S4method{biclust}{matrix,BCQuest}(x, method=BCQuest(), ns=10, nd=10, sd=5, alpha=0.05, number=100)
 \S4method{biclust}{matrix,BCQuestord}(x, method=BCQuestord(), d=1, ns=10, nd=10, sd=5, alpha=0.05, number=100)
-\S4method{biclust}{matrix,BCQuestmet}(x, method=BCQuestmet(), quant=0.25, vari=1, ns=10, nd=10, sd=5, alpha=0.05, number=100)
+\S4method{biclust}{matrix,BCQuestmet}(x, method=BCQuestmet(), quant=0.25, vari=1, ns=10, nd=10, sd=5, 
+  alpha=0.05, number=100)
 
 }
 %- maybe also 'usage' for other objects documented here.

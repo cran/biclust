@@ -9,7 +9,11 @@ Generates a list containing parameter settings for the ensemble algorithm.
 }
 
 \usage{
-plaid.grid(method = "BCPlaid", cluster = "b", fit.model = y ~ m + a + b, background = TRUE, background.layer = NA, background.df = 1, row.release = c(0.5, 0.6, 0.7), col.release = c(0.5, 0.6, 0.7), shuffle = 3, back.fit = 0, max.layers = 20, iter.startup = 5, iter.layer = 10, verbose = FALSE)
+plaid.grid(method = "BCPlaid", cluster = "b", fit.model = y ~ m + a + b, 
+  background = TRUE, background.layer = NA, background.df = 1, 
+  row.release = c(0.5, 0.6, 0.7), col.release = c(0.5, 0.6, 0.7), 
+  shuffle = 3, back.fit = 0, max.layers = 20, iter.startup = 5, 
+  iter.layer = 10, verbose = FALSE)
 }
 
 \arguments{

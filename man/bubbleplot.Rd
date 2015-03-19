@@ -13,7 +13,8 @@
     }
     
 \usage{
-bubbleplot(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection="mean", showLabels=FALSE)
+bubbleplot(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection="mean", 
+  showLabels=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

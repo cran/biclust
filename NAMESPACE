@@ -3,9 +3,10 @@ useDynLib(biclust)
 import(methods)
 
 importFrom(colorspace, diverge_hcl)
-importFrom(grid, grid.lines, unit, gpar)
+importFrom(grid, grid.lines, unit, gpar,grid.newpage,pushViewport,viewport,grid.text,grid.segments,grid.points,grid.rect)
 importFrom(MASS, sammon, isoMDS, Shepard)
-importFrom(lattice, barchart)
+importFrom(lattice, barchart,panel.barchart)
+importFrom(flexclust,as.kcca)
 
 export(	drawHeatmap,
 	drawHeatmap2,

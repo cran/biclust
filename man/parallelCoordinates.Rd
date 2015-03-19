@@ -45,7 +45,8 @@ order2 = 0,ylab = "Value" , col=1,...)
   parallelCoordinates(x=s2,bicResult=bics,number=1, plotBoth=TRUE,
 plotcol=TRUE, compare=TRUE, info=TRUE,bothlab=c("Genes Bicluster
 1","Conditions Bicluster 1"), order =TRUE)
-  parallelCoordinates(x=s2,bicResult=bics,number=1, plotBoth=FALSE, plotcol=TRUE,  compare=FALSE, info=TRUE)
+  parallelCoordinates(x=s2,bicResult=bics,number=1, plotBoth=FALSE, plotcol=TRUE, 
+    compare=FALSE, info=TRUE)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

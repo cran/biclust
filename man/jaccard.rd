@@ -36,7 +36,8 @@ jaccard2(Rows, Cols)
 \examples{
 \dontrun{
 data(BicatYeast)
-res1<-biclust(BicatYeast, method=BCPlaid(), back.fit = 2, shuffle = 3, fit.model = ~m + a + b,iter.startup = 5, iter.layer = 30,  verbose = TRUE)
+res1<-biclust(BicatYeast, method=BCPlaid(), back.fit = 2, shuffle = 3,
+  fit.model = ~m + a + b,iter.startup = 5, iter.layer = 30,  verbose = TRUE)
 res2<-biclust(BicatYeast, method=BCCC())
 jaccardind(res1,res2)
 

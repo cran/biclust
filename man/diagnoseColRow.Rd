@@ -85,7 +85,8 @@ background = TRUE, row.release = 0.6, col.release = 0.7, shuffle = 50, back.fit 
 max.layers = 1, iter.startup = 100, iter.layer = 100, verbose = TRUE)
 
 #Run boosotrap procedure:
-Bootstrap <- diagnoseColRow(x=xmat, bicResult = plaidmab, number = 1, nResamplings = 999, replace = TRUE)
+Bootstrap <- diagnoseColRow(x=xmat, bicResult = plaidmab, number = 1, nResamplings = 999,
+  replace = TRUE)
 diagnosticPlot(bootstrapOutput = Bootstrap) 	# plotting distribution of bootstrap replicates
 
 }

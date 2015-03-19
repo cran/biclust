@@ -18,7 +18,7 @@
 \arguments{
   \item{x}{Data Matrix.}
   \item{method}{Here BCXmotifs, to perform Xmotifs algorithm}
-  \item{ns}{Number of rows choosen.}
+  \item{ns}{Number of columns choosen.}
   \item{nd}{Number of repetitions.}
   \item{sd}{Sample size in repetitions.}
   \item{alpha}{Scaling factor for column result.}

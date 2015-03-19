@@ -387,10 +387,20 @@ void  readInDataMatrix(int * daten)
 
 void  bimax(int * datenmatrix, int * nr, int * nc,int * minnr, int * minnc, int * x, int * y, int * z,int * anzahl,int * er)
 {
-  noRows = *nr;
+/*  noRows = *nr;
   noColumns = *nc;
   minNoRows = *minnr;
-  minNoColumns = *minnc;
+  minNoColumns = *minnc;*/
+
+
+  noRows = *nr;
+    fflush(stdin);
+    noColumns = *nc;
+    fflush(stdin);
+    minNoRows = *minnr;
+    fflush(stdin);
+    minNoColumns = *minnc;
+    fflush(stdin);
   
   if (minNoRows < 1L)
     minNoRows = 1L;

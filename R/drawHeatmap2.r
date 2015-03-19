@@ -44,7 +44,7 @@ drawHeatmap2=function(x, bicResult=NULL, number=NA, plotAll=FALSE)
             rowlength[1]<-length(bicRows)
             collength<-1:bicResult@Number
             collength[1]<-length(bicCols)
-            if(bicResult@Number>2)
+            if(bicResult@Number>=2) 
             {
             for (i in 2:bicResult@Number)
             {
@@ -83,8 +83,7 @@ drawHeatmap2=function(x, bicResult=NULL, number=NA, plotAll=FALSE)
       {
       if(is.na(number) || number>bicResult@Number || number<=0)
       {
-      print("Error: the bicluster does not exist in the result set")
-      break
+      stop("Error: the bicluster does not exist in the result set",call.=FALSE)
       }
       n=dim(x)[1]
       m=dim(x)[2]

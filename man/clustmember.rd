@@ -6,9 +6,13 @@
 \title{Bicluster Membership Graph}
 \description{ Draws a membership graph cluster x columns}
 \usage{
-biclustmember(bicResult, x, mid = T, cl_label = "", which=NA, main = "BiCluster Membership Graph", xlab="Cluster", color=diverge_hcl(101, h = c(0, 130)), ...)
+biclustmember(bicResult, x, mid = T, cl_label = "", which=NA, 
+  main = "BiCluster Membership Graph", xlab="Cluster", 
+  color=diverge_hcl(101, h = c(0, 130)), ...)
 
-clustmember(res, x, mid = T, cl_label = "", which=NA, main = "Cluster Membership Graph", xlab="Cluster",color=diverge_hcl(101, h = c(0, 130)), ...)
+clustmember(res, x, mid = T, cl_label = "", which=NA, 
+  main = "Cluster Membership Graph", xlab="Cluster", 
+  color=diverge_hcl(101, h = c(0, 130)), ...)
 
 bicorder(bicResult, cols=TRUE, rev=FALSE)
 }

@@ -9,7 +9,8 @@ Ensemble Methods for Bicluster Algorithms
   possible different bicluster algorithms. 
 }
 \usage{
-ensemble(x, confs, rep = 1, maxNum = 5, similar = jaccard2, thr = 0.8, simthr =0.7, subs = c(1, 1), bootstrap = FALSE, support = 0, combine=firstcome, ...)
+ensemble(x, confs, rep = 1, maxNum = 5, similar = jaccard2, thr = 0.8, simthr =0.7,
+  subs = c(1, 1), bootstrap = FALSE, support = 0, combine=firstcome, ...)
 }
 
 \arguments{

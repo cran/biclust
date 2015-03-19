@@ -1,25 +1,26 @@
 Package: biclust
-Version: 1.0.2
-Date: 2011-03-15
-Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana, Khamiakova,
-        Martin Sill, Roberto Theron, Luis Quintales and Friedrich
-        Leisch.
+Version: 1.1.0
+Date: 2015-03-19
+Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova,
+        Martin Sill, Roberto Theron, Luis Quintales, Friedrich
+        Leisch and Ewoud De Troyer.
 Maintainer: Sebastian Kaiser <Sebastian.Kaiser@stat.uni-muenchen.de>
 Title: BiCluster Algorithms
 Depends: R (>= 2.10), MASS, grid, colorspace, lattice
-Imports: methods
-Suggests: flexclust, isa2
+Imports: methods, flexclust
+Suggests: isa2
 Description: The main function biclust provides several algorithms to
         find biclusters in two-dimensional data: Cheng and Church,
         Spectral, Plaid Model, Xmotifs and Bimax. In addition, the
         package provides methods for data preprocessing (normalization
         and discretisation), visualisation, and validation of bicluster
         solutions.
-License: GPL-2
+License: GPL-3
 LazyLoad: yes
 Repository: CRAN
 Repository/R-Forge/Project: biclust
-Repository/R-Forge/Revision: 212
-Date/Publication: 2013-03-10 17:24:22
-Packaged: 2013-03-10 16:20:04 UTC; ripley
+Repository/R-Forge/Revision: 220
+Date/Publication: 2015-03-19 14:57:19
 NeedsCompilation: yes
+Repository/R-Forge/DateTimeStamp: 2015-03-19 09:23:24
+Packaged: 2015-03-19 09:45:20 UTC; rforge

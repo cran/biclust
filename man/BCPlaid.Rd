@@ -14,9 +14,9 @@
   to data through minimization of error. }
 \usage{
 \S4method{biclust}{matrix,BCPlaid}(x, method=BCPlaid(), cluster="b", fit.model = y ~ m + a + b,
-  background = TRUE, background.layer = NA, background.df = 1, row.release = 0.7, col.release = 0.7,
-  shuffle = 3, back.fit = 0, max.layers = 20,
-  iter.startup = 5, iter.layer = 10, verbose = TRUE)
+  background = TRUE, background.layer = NA, background.df = 1, row.release = 0.7, 
+  col.release = 0.7, shuffle = 3, back.fit = 0, max.layers = 20, iter.startup = 5,
+  iter.layer = 10, verbose = TRUE)
 }
 
 \arguments{
