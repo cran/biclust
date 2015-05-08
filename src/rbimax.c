@@ -70,6 +70,8 @@ cs_t   *consideredColumns;
 cs_t   *mandatoryColumns;
 cs_t   columnIntersection;
 
+static int  biclusterCounter = 0; // przemek
+
 int  isSet(cs_t  columnSet, int  column)
 {
   bitvector_t  bv;
@@ -253,7 +255,8 @@ int  selectRows(int  firstRow, int  lastRow, int  level, int  *overlapping)
 
 void  writeBicluster(int  firstRow, int  lastRow, cs_t  columnSet, int * x, int * y, int * z,int * anzahl,int * er)
 {
-  static int  biclusterCounter = 0;
+  //static int  biclusterCounter = 0; // przemek
+
   int  i;
   int a;
   a = *anzahl;
@@ -263,15 +266,15 @@ void  writeBicluster(int  firstRow, int  lastRow, cs_t  columnSet, int * x, int 
       biclusterCounter = 0;
       return;}
   /* printf("\n%ld\n", biclusterCounter); */
-  for (i = firstRow; i <= lastRow; i++)
+  //for (i = firstRow; i <= lastRow; i++) // Commented, Ewoud
   /* printf("%ld\t", rows[i].originalRowNumber + 1L); */
   for (i = firstRow; i <= lastRow; i++)
     x[rows[i].originalRowNumber + ((biclusterCounter-1)*noRows)]=1;
 /*  for (i = firstRow; i <= lastRow; i++)
     z[rows[i].originalRowNumber]+=pow(2,(biclusterCounter-1));  */
   /*printf("\n"); */
-  for (i = 0; i < noColumns; i++)
-    if (isSet(columnSet, i))
+ /* for (i = 0; i < noColumns; i++)
+    if (isSet(columnSet, i))*/ //Commented, Ewoud//
      /* printf("%ld\t", i + 1L); */
   for (i = 0; i < noColumns; i++)
     if (isSet(columnSet, i))
@@ -392,6 +395,7 @@ void  bimax(int * datenmatrix, int * nr, int * nc,int * minnr, int * minnc, int 
   minNoRows = *minnr;
   minNoColumns = *minnc;*/
 
+  biclusterCounter = 0; // przemek
 
   noRows = *nr;
     fflush(stdin);

@@ -1,5 +1,5 @@
 94d55d512a9ba36caa9b7df079bae19f *COPYING
-04394cff648b644199588c91ab16feda *DESCRIPTION
+208708020cc153c2e93cff563b195f61 *DESCRIPTION
 836e6ee1b6f9e1656b9ad1465447a8db *NAMESPACE
 4c823fa206b3dbd07799a0df68862097 *NEWS
 50c110b53800dc9cf6a0025d5d93960d *R/DiagnosticsFunctions.R
@@ -24,7 +24,7 @@ c10f02aa65268e85b29c4e799a851b7c *R/jaccard.r
 03a43759bb6c46659377d855a445eb08 *R/logical2sparse.r
 0d6c5665f69b852763526b7f37ecf02c *R/normalization.r
 71f99b79deee23c7ce4102ecef8724b1 *R/parallelCoordinates.r
-3793067c2468deac3456a34388e87ad7 *R/plaid.r
+e3acd7b3e1808d9318c9205aedc322c9 *R/plaid.r
 e01db234dade20885f460fd48bdcb1a6 *R/postprocessing.r
 75070253849ab62afb399483cf4b2c0f *R/predict.r
 00f18279e63a0f940a393118737b6a65 *R/questmetmotif.r
@@ -33,9 +33,9 @@ c0344b94b4a71f6abf9f786cc2284aff *R/questordmotif.r
 3b9006d3d65ff8d2bcf521172fda189c *R/spectral.r
 899410608eafde3310fb69a084f1ea4e *R/writeBiclusterResults.r
 b82f5289a96e72f9d3c98f3dc60ca21e *R/xmotif.r
-c76bb6c3e7f30316c5133f15dab5e7f0 *data/BicatYeast.rda
-a63063a7b9dcf2b2d527288cadd8446d *data/EisenYeast.rda
-0eea850f0304f498c7c129b2b4b0c437 *data/SyntrenEcoli.rda
+153c0cfd5e4dcb2d4d2f91d8ce7cfefb *data/BicatYeast.rda
+85a8d44aa02fbe27ea12cbff3ee52652 *data/EisenYeast.rda
+ddd4c25c93c3dea50642e386429d027d *data/SyntrenEcoli.rda
 042e21d1c12f429128b80b17edfa0199 *data/datalist
 90f8a314365e7909126ed57582f89ccc *man/BCBimax.rd
 6eaf9c78bac1f7422563fb301dcf43da *man/BCCC.rd
@@ -72,4 +72,4 @@ e89f0d22eefaf47d44fc8b73b3ba9983 *man/jaccard.rd
 75de437e2d73f7ff2be93a5bf54495ca *man/predict.rd
 8026fb19385393808f14b7dc2e2926e1 *man/writeBiclusterResults.Rd
 118e56e7cd1927237290f611c3a6df01 *man/writeclust.rd
-5ef3b5e0e1dd822139d31fdfd73ef927 *src/rbimax.c
+83fb8e29b228e116416fe595a50d2194 *src/rbimax.c

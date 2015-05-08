@@ -190,7 +190,7 @@ c("Rows", "Cols", "Df", "SS", "MS",
 			
 			}
 			else{
-				return(BiclustResult(as.list(match.call()),matrix(r[,1:layer],n,1),t(matrix(k[,1:layer],p,1)),2,list(SS=SS[1:2],MS=SS[1:2] / layer.df[1:2])))
+				return(BiclustResult(as.list(match.call()),matrix(r[,1:layer],n,2),t(matrix(k[,1:layer],p,2)),2,list(SS=SS[1:2],MS=SS[1:2] / layer.df[1:2])))
 			
 			}
      	}
