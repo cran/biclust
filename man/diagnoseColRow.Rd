@@ -5,7 +5,7 @@
   Bootstrap Procedure for Bicluster Diagnostics
 }
 \description{
-Calculate the signifiance of the discovered patter in the data based on the bootstrapping procedure.
+Calculate the significance of the discovered patter in the data based on the bootstrapping procedure.
 }
 \usage{
 diagnoseColRow(x, bicResult, number, nResamplings, replace = TRUE)
@@ -64,7 +64,7 @@ Hence, bicluster columns were just randomly picked by an algorithm for a set of 
 Tatsiana KHAMIAKOVA \email{tatsiana.khamiakova@uhasselt.be}
 }
 \seealso{
-\code{\link{diagnosticPlot}}, \code{\link{computeObservedFstat}}, \code{\link{ChiaKaruturi}}
+\code{\link{diagnosticTest}}, \code{\link{diagnosticPlot2}}, \code{\link{diagnosticPlot}}, \code{\link{computeObservedFstat}}, \code{\link{ChiaKaruturi}}
 }
 \examples{
 #---simulate dataset with 1 bicluster ---#
