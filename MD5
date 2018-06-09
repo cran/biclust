@@ -1,5 +1,5 @@
 94d55d512a9ba36caa9b7df079bae19f *COPYING
-261907b95a9c324ba05a1c42b27e86c4 *DESCRIPTION
+62610cf3e0c58011c19689e0c18c99dd *DESCRIPTION
 5f8496a90967793862ab30e18733da79 *NAMESPACE
 7e96c4352ec0942f55cd022f064b9bfe *NEWS
 dc998c9b7dbe4c9e19df3a5abf0f7441 *R/DiagnosticsFunctions.R
@@ -77,4 +77,4 @@ f42883e284f3224ffd19f5f96087fd39 *man/plaid.grid.Rd
 8026fb19385393808f14b7dc2e2926e1 *man/writeBiclusterResults.Rd
 118e56e7cd1927237290f611c3a6df01 *man/writeclust.rd
 97eb3f9ab96de0994b67b23c38d0b622 *src/biclust_init.c
-83fb8e29b228e116416fe595a50d2194 *src/rbimax.c
+4961da610ab8961713e6ffd88fc8672d *src/rbimax.c
