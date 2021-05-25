@@ -1,9 +1,9 @@
 Package: biclust
-Version: 2.0.2
-Date: 2020-02-03
+Version: 2.0.3
+Date: 2021-05-22
 Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova,
         Martin Sill, Roberto Theron, Luis Quintales, Friedrich
-        Leisch and Ewoud De Troyer.
+        Leisch, Ewoud De Troyer and Sami Leon.
 Maintainer: Sebastian Kaiser <dr.sebastian.kaiser@gmail.com>
 Title: BiCluster Algorithms
 Depends: R (>= 2.10), MASS, grid, colorspace, lattice
@@ -18,6 +18,6 @@ Description: The main function biclust() provides several algorithms to
 License: GPL-3
 LazyLoad: yes
 NeedsCompilation: yes
-Packaged: 2020-02-03 14:44:44 UTC; n349570
+Packaged: 2021-05-25 12:51:16 UTC; n349570
 Repository: CRAN
-Date/Publication: 2020-02-04 17:30:02 UTC
+Date/Publication: 2021-05-25 13:40:02 UTC

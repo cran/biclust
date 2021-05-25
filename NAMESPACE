@@ -70,7 +70,8 @@ export(	drawHeatmap,
        diagnoseColRow,
        diagnosticPlot,
        biclustbarchart,
-       heatmapBC
+       heatmapBC,
+       spectral
 	)
 
 export(diagnosticPlot2)
