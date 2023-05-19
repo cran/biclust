@@ -1,5 +1,5 @@
 Package: biclust
-Version: 2.0.3
+Version: 2.0.3.1
 Date: 2021-05-22
 Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova,
         Martin Sill, Roberto Theron, Luis Quintales, Friedrich
@@ -18,6 +18,6 @@ Description: The main function biclust() provides several algorithms to
 License: GPL-3
 LazyLoad: yes
 NeedsCompilation: yes
-Packaged: 2021-05-25 12:51:16 UTC; n349570
+Packaged: 2023-05-13 08:40:36 UTC; ripley
 Repository: CRAN
-Date/Publication: 2021-05-25 13:40:02 UTC
+Date/Publication: 2023-05-19 07:18:34 UTC

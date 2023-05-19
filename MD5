@@ -1,5 +1,5 @@
 94d55d512a9ba36caa9b7df079bae19f *COPYING
-6ff22edcbf2d3124785d68fe488caec2 *DESCRIPTION
+e8cb7d1ccd3953e9a24644af7c22e0f7 *DESCRIPTION
 0d1d3a49b584d46c56ad794bbcd38081 *NAMESPACE
 2ebbeee56cc923f2e7a514453b724790 *NEWS
 348c62a020e8699c4e3a0b9c57d93abc *R/DiagnosticsFunctions.R
@@ -76,4 +76,4 @@ bf1e7e93e8e2256584e46c51d809c7aa *man/isoverlapp.rd
 c94f02ce6a0d6f399075788ae8915a53 *man/writeBiclusterResults.Rd
 86397f5740082be7d900434d2e30bce2 *man/writeclust.rd
 97eb3f9ab96de0994b67b23c38d0b622 *src/biclust_init.c
-4961da610ab8961713e6ffd88fc8672d *src/rbimax.c
+266ab6a70901bc7f1600243a1ab41e7d *src/rbimax.c

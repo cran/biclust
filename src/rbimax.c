@@ -323,7 +323,7 @@ void  conquer(int  firstRow, int  lastRow, int  level, int noMandatorySets, int 
   }
 } /* conquer */
 
-int  initialize()
+int  initialize(void)
 {
   bitvector_t  dummy;
   int          failed;
